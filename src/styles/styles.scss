@@ -31,7 +31,11 @@ hr {
 .container {
   width: 90%;
   margin: 0 auto;
-  max-width: 1152px;
+}
+
+.main-container {
+  margin: 0 auto;
+
   .header {
     background-color: #a27aff;
 

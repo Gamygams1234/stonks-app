@@ -89,7 +89,7 @@ class App extends Component {
   render() {
     if (this.state.appOpened) {
       return (
-        <div className="container main-container">
+        <div className=" main-container">
           <div className="header">
             <div className="container">
               <h1>Stonks</h1>
@@ -104,7 +104,7 @@ class App extends Component {
       );
     } else if (this.state.stockPresent) {
       return (
-        <div className="container main-container">
+        <div className="main-container">
           <div className="header">
             <div className="container">
               <h1>Stonks</h1>
@@ -168,7 +168,7 @@ class App extends Component {
       );
     } else {
       return (
-        <div className="container main-container">
+        <div className=" main-container">
           <div className="header">
             <div className="container">
               <h1>Stonks</h1>

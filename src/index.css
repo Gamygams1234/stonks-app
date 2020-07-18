@@ -34,72 +34,75 @@ hr {
 .container {
   width: 90%;
   margin: 0 auto;
-  max-width: 1152px;
 }
-.container .header {
+
+.main-container {
+  margin: 0 auto;
+}
+.main-container .header {
   background-color: #a27aff;
 }
-.container .header .container {
+.main-container .header .container {
   padding-top: 2.5em;
   padding-bottom: 2.5em;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.container .header .container h1 {
+.main-container .header .container h1 {
   font-size: 5.5em;
   color: #ffffff;
 }
-.container .header .container form {
+.main-container .header .container form {
   display: flex;
 }
-.container .header .container form input {
+.main-container .header .container form input {
   padding-left: 10px;
   padding-right: 10px;
   height: 2.5em;
   font-size: 2em;
 }
-.container .header .container form input:focus {
+.main-container .header .container form input:focus {
   border: 3px solid #555;
 }
-.container .header .container form button {
+.main-container .header .container form button {
   font-size: 2em;
   padding-left: 10px;
   padding-right: 10px;
   font-size: 16px;
 }
-.container .content {
+.main-container .content {
   padding-top: 2em;
 }
-.container .content .container {
+.main-container .content .container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 20px;
 }
-.container .content .container .chart {
+.main-container .content .container .chart {
   grid-column: 7/13;
 }
-.container .content .container .symbol {
+.main-container .content .container .symbol {
   padding-top: 20px;
   padding-bottom: 30px;
   grid-column: span 12;
   display: flex;
   justify-content: center;
 }
-.container .content .container .symbol h2 {
+.main-container .content .container .symbol h2 {
   font-size: 4em;
 }
-.container .content .container .data {
+.main-container .content .container .data {
   grid-column: 1/6;
   display: flex;
   flex-direction: column;
   font-size: 3em;
 }
-.container .content .container .data #date {
+.main-container .content .container .data #date {
   display: flex;
   justify-content: center;
 }
-.container .content .container .data .data-item {
+.main-container .content .container .data .data-item {
   padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
