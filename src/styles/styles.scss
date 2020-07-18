@@ -1,0 +1,138 @@
+html {
+  font-size: 62.5%;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-weight: lighter;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #707070;
+  transition: 0.5s ease-in-out;
+}
+
+.no-results {
+  display: flex;
+  justify-content: center;
+  font-size: 3.5em;
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+hr {
+  display: none;
+}
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1152px;
+  .header {
+    background-color: #a27aff;
+
+    .container {
+      h1 {
+        font-size: 5.5em;
+        color: #ffffff;
+      }
+      form {
+        display: flex;
+        input {
+          padding-left: 10px;
+          padding-right: 10px;
+          height: 2.5em;
+          font-size: 2em;
+          &:focus {
+            border: 3px solid #555;
+          }
+        }
+        button {
+          font-size: 2em;
+
+          padding-left: 10px;
+          padding-right: 10px;
+          font-size: 16px;
+        }
+      }
+      padding-top: 2.5em;
+      padding-bottom: 2.5em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .content {
+    padding-top: 2em;
+    .container {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 20px;
+      .chart {
+        grid-column: 7 /13;
+      }
+      .symbol {
+        padding-top: 20px;
+        padding-bottom: 30px;
+        grid-column: span 12;
+        display: flex;
+        justify-content: center;
+        h2 {
+          font-size: 4em;
+        }
+      }
+      .data {
+        grid-column: 1/6;
+        display: flex;
+        flex-direction: column;
+        font-size: 3em;
+        #date {
+          display: flex;
+          justify-content: center;
+        }
+
+        .data-item {
+          padding-bottom: 10px;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .main-container {
+    width: 100%;
+  }
+
+  #stock-data {
+    grid-column: span 12;
+    display: flex;
+    margin: 0 auto;
+    min-width: 300px;
+  }
+  #dataChart {
+    grid-column: span 12;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .main-container {
+    width: 100%;
+    .header {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        h1 {
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+}
