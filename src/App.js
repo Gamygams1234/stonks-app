@@ -53,14 +53,19 @@ class App extends Component {
     fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${this.state.stockSearch}&apikey=OT4P8WNBW9ESMBZV`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(Object.entries(data["Time Series (Daily)"]));
         let entries = Object.entries(data["Time Series (Daily)"]);
         let currentEntry = Object.entries(data["Time Series (Daily)"])[0];
         var dataToPush = [];
-        for (var i = 0; i < 60; i++) {
-          dataToPush.push({ x: new Date(entries[i][0]), y: [parseFloat(parseFloat(entries[i][1]["1. open"]).toFixed(2)), parseFloat(parseFloat(entries[i][1]["2. high"]).toFixed(2)), parseFloat(parseFloat(entries[i][1]["3. low"]).toFixed(2)), parseFloat(parseFloat(entries[i][1]["4. close"]).toFixed(2))] });
+        if (entries.length < 60) {
+          for (let i = 0; i < entries.length; i++) {
+            dataToPush.push({ x: new Date(entries[i][0]), y: [parseFloat(parseFloat(entries[i][1]["1. open"]).toFixed(2)), parseFloat(parseFloat(entries[i][1]["2. high"]).toFixed(2)), parseFloat(parseFloat(entries[i][1]["3. low"]).toFixed(2)), parseFloat(parseFloat(entries[i][1]["4. close"]).toFixed(2))] });
+          }
+        } else {
+          for (let i = 0; i < 60; i++) {
+            dataToPush.push({ x: new Date(entries[i][0]), y: [parseFloat(parseFloat(entries[i][1]["1. open"]).toFixed(2)), parseFloat(parseFloat(entries[i][1]["2. high"]).toFixed(2)), parseFloat(parseFloat(entries[i][1]["3. low"]).toFixed(2)), parseFloat(parseFloat(entries[i][1]["4. close"]).toFixed(2))] });
+          }
         }
-        console.log(dataToPush);
+
         this.setState((state) => ({
           stockSearch: "",
           stock: data["Meta Data"]["2. Symbol"],
@@ -74,9 +79,9 @@ class App extends Component {
           appOpened: false,
           dataPoints: dataToPush,
         }));
-        // document.querySelectorAll("hr").forEach((element) => {
-        //   element.style.display = "block";
-        // });
+        document.querySelectorAll("hr").forEach((element) => {
+          element.style.display = "block";
+        });
       })
       .catch((error) => {
         this.setState({
@@ -168,7 +173,7 @@ class App extends Component {
       );
     } else {
       return (
-        <div className=" main-container">
+        <div className="main-container">
           <div className="header">
             <div className="container">
               <h1>Stonks</h1>

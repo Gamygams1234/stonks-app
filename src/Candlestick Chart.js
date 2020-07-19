@@ -12,7 +12,7 @@ class CandlestickChart extends Component {
         text: `${this.props.stock} Stock Price`,
       },
       axisX: {
-        valueFormatString: "MMM",
+        valueFormatString: "MMM-DD-YYYY",
       },
       axisY: {
         includeZero: false,
@@ -25,7 +25,7 @@ class CandlestickChart extends Component {
           showInLegend: true,
           name: this.props.stock,
           yValueFormatString: "$###0.00",
-          xValueFormatString: "MMMM YY",
+          xValueFormatString: "MMMM DD",
           dataPoints: this.props.dataPoints,
         },
       ],
